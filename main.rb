@@ -25,10 +25,10 @@ when "C"
   #p find
   puts "\n"
 
-  find.each do | obj |
-    if obj == "C"
+  find.each do | char |
+    if char == "C"
       puts "Circumference of a circle is: #{c.circumference}"
-    elsif obj == "A"
+    elsif char == "A"
       puts "Area of a circle: #{c.area}"
     else
       abort "Invalid input #{obj}. Re-run program and enter valid input!"
@@ -60,6 +60,7 @@ when "R"
       abort "Invalid input #{obj}. Re-run program and enter valid input!"
     end
   end
+
 when "S"
   print "\nSide of a square is: "
   side = gets.chomp.to_f
