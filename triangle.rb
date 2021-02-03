@@ -1,12 +1,12 @@
 include Math
 
-class Traingle
-  def initialize b, h
-    @b = b
+class Triangle
+  def initialize h, w
+    @w = w
     @h = h
   end
 
   def area
-    area = 0.5 * @b * @h
+    area = 0.5 * @w * @h
   end
 end

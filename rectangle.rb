@@ -1,20 +1,21 @@
 include Math
+
 class Rectangle
-  def initialize l, b
-    @l = l
-    @b = b
+  def initialize w, h
+    @w = w
+    @h = h
   end
 
   def area
-    area = @b * @l
+    area = @h * @w
   end
 
   def perimeter
-    perimeter = 2 * (@l + @b)
+    perimeter = 2 * (@w + @h)
   end
 
   def diagonal
-    diagonal = hypot(@l, @b)
+    diagonal = hypot(@w, @h)
     diagonal.round(2)
   end
 end
