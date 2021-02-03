@@ -31,7 +31,7 @@ when "C"
     elsif char == "A"
       puts "Area of a circle: #{c.area}"
     else
-      abort "Invalid input #{obj}. Re-run program and enter valid input!"
+      abort "Invalid input #{char}. Re-run program and enter valid input!"
     end
   end
 
@@ -57,7 +57,7 @@ when "R"
     elsif char == "D"
       puts "Diagonal of a rectangle is: #{r.diagonal}"
     else
-      abort "Invalid input #{obj}. Re-run program and enter valid input!"
+      abort "Invalid input #{char}. Re-run program and enter valid input!"
     end
   end
 
@@ -81,7 +81,7 @@ when "S"
     elsif char == "D"
       puts "Diagonal of a square is: #{s.diagonal}"
     else
-      abort "Invalid input #{obj}. Re-run program and enter valid input!"
+      abort "Invalid input #{char}. Re-run program and enter valid input!"
     end
   end
 
