@@ -4,6 +4,8 @@
 require 'require_all'
 require_all 'objects'
 
+# fucntion for user input
+# asks what variables to find of that shape
 def input
   puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE\nType 'R' to find DIAMETER\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
   puts "Type more than 1 chars to find more than 1 values."
@@ -12,7 +14,9 @@ def input
   puts "\n"
 end
 
+# function for displaying output
 def output
+  # output specific for circle shape
   def circle
     $find.each do | char |
       if char == "C"
@@ -27,6 +31,7 @@ def output
     end
   end
 
+# output specific for rectangle and square shape
   def quadrilaterals
     $find.each do | char |
       if char == "A"
@@ -40,25 +45,29 @@ def output
       end
     end
   end
-
+# output specific for triangle shape
   def triangle
     puts "\nArea is: #{$o.area}"
   end
 end
 
+# we need to know which shape user is interested in
 puts "Enter ONLY Initials of Shapes you want to find: "
 puts "'C' for Circle, \t 'S' for Square, \n'T' for Triangle, \t 'R' for Rectangle"
-object = gets.chomp.capitalize
-#p object
+shape = gets.chomp.capitalize
+#p shape
 
-case object
+# will ask user necessory info of shape user is interested in
+case shape
 when "C"
   print "\nRadius of circle is: "
   radius = gets.chomp.to_f
 
+  # will call required class and give necessory info for calc
   $o = Circle.new(radius)
-
+  # calls input function
   input
+  # returns output
   output.circle
 
 when "R"
