@@ -2,12 +2,12 @@
 #
 # makes available all required shapes for calculation
 require 'require_all'
-require_all 'objects'
+require_all 'shapes'
 
 # fucntion for user input
 # asks what properties to find of that shape
 def input
-  puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE\nType 'D' to find DIAMETER\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
+  puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE (ONLY FOR CIRCLE)\nType 'D' to find DIAMETER (ONLY FOR CIRCLE)\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
   puts "Type more than 1 chars to find more than 1 values."
   find = gets.chomp.split('').map(&:upcase)
   #p find
