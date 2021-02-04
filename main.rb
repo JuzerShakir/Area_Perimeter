@@ -1,22 +1,54 @@
 # areas and perimeter for objects
 #
-
+# makes available all required shapes for calculation
 require 'require_all'
 require_all 'objects'
 
 def input
-  puts "\nTo find Area of a Circle Type 'A'\nType 'C' to find circumference"
-  puts "To find BOTH, Type 'AC' or 'CA':"
-  find = gets.chomp.split('').map(&:capitalize)
+  puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE\nType 'R' to find DIAMETER\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
+  puts "Type more than 1 chars to find more than 1 values."
+  $find = gets.chomp.split('').map(&:upcase)
   #p find
   puts "\n"
-  return find
 end
 
-puts "Enter ONLY Initials of Calculations you want to find: "
+def output
+  def circle
+    $find.each do | char |
+      if char == "C"
+        puts "Circumference is: #{$o.circumference}"
+      elsif char == "A"
+        puts "Area is: #{$o.area}"
+      elsif char == "R"
+        puts "Diameter is: #{$o.diameter}"
+      else
+        next
+      end
+    end
+  end
+
+  def quadrilaterals
+    $find.each do | char |
+      if char == "A"
+        puts "Area is: #{$o.area}"
+      elsif char == "P"
+        puts "Perimeter is: #{$o.perimeter}"
+      elsif char == "D"
+        puts "Diagonal is: #{$o.diagonal}"
+      else
+        next
+      end
+    end
+  end
+
+  def triangle
+    puts "\nArea is: #{$o.area}"
+  end
+end
+
+puts "Enter ONLY Initials of Shapes you want to find: "
 puts "'C' for Circle, \t 'S' for Square, \n'T' for Triangle, \t 'R' for Rectangle"
 object = gets.chomp.capitalize
-
 #p object
 
 case object
@@ -24,19 +56,10 @@ when "C"
   print "\nRadius of circle is: "
   radius = gets.chomp.to_f
 
-  c = Circle.new(radius)
+  $o = Circle.new(radius)
 
   input
-
-  find.each do | char |
-    if char == "C"
-      puts "Circumference of a circle is: #{c.circumference}"
-    elsif char == "A"
-      puts "Area of a circle: #{c.area}"
-    else
-      abort "Invalid input #{char}. Re-run program and enter valid input!"
-    end
-  end
+  output.circle
 
 when "R"
   print "\nWidth of a rectangle is: "
@@ -44,49 +67,19 @@ when "R"
   print "\nHeight of a rectangle is: "
   height = gets.chomp.to_f
 
-  r = Rectangle.new(width, height)
+  $o = Rectangle.new(width, height)
 
-  puts "\nType 'A' to find Area\nType 'P' to find Perimeter\nType 'D' to find diagonal."
-  puts "Type more than 1 chars to find more than 1 values."
-  find = gets.chomp.split('').map(&:capitalize)
-  #p find
-  puts "\n"
-
-  find.each do | char |
-    if char == "A"
-      puts "\nArea of a Rectangle is: #{r.area}"
-    elsif char == "P"
-      puts "Perimeter of a rectangle is: #{r.perimeter}"
-    elsif char == "D"
-      puts "Diagonal of a rectangle is: #{r.diagonal}"
-    else
-      abort "Invalid input #{char}. Re-run program and enter valid input!"
-    end
-  end
+  input
+  output.quadrilaterals
 
 when "S"
   print "\nSide of a square is: "
   side = gets.chomp.to_f
 
-  s = Square.new(side)
+  $o = Square.new(side)
 
-  puts "\nType 'A' to find Area\nType 'P' to find Perimeter\nType 'D' to find diagonal."
-  puts "Type more than 1 chars to find more than 1 values."
-  find = gets.chomp.split('').map(&:capitalize)
-  #p find
-  puts "\n"
-
-  find.each do | char |
-    if char == "A"
-      puts "\nArea of a square is: #{s.area}"
-    elsif char == "P"
-      puts "Perimeter of a square is: #{s.perimeter}"
-    elsif char == "D"
-      puts "Diagonal of a square is: #{s.diagonal}"
-    else
-      abort "Invalid input #{char}. Re-run program and enter valid input!"
-    end
-  end
+  input
+  output.quadrilaterals
 
 when "T"
   print "\nHeight of a triangle is: "
@@ -94,8 +87,8 @@ when "T"
   print "\nWidth of a triangle is: "
   width = gets.chomp.to_f
 
-  t = Triangle.new(height, width)
+  $o = Triangle.new(height, width)
 
-  puts "\nArea of a triangle is: #{t.area}"
-
+  output.triangle
 end
+
