@@ -4,11 +4,15 @@
 require 'require_all'
 require_all 'shapes'
 
+# this function checks if user has entered only numerical input
 def inspect_input *args
+  # will give list of all the arguments
   args = *args
+  # looping through element to check if input has a alphabets
   args.each do | ele |
     if ele.match(/[a-z]/) then abort "Only NUMERICAL input allowed" end
   end
+  # if all input are numerical then convert each element to float
   return args.map(&:to_f)
 end
 
