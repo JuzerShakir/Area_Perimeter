@@ -6,11 +6,11 @@ require_all 'objects'
 
 puts "Enter ONLY Initials of Calculations you want to find: "
 puts "'C' for Circle, \t 'S' for Square, \n'T' for Triangle, \t 'R' for Rectangle"
-initial = gets.chomp
-initial.capitalize!
+object = gets.chomp.capitalize
+
 #p initial
 
-case initial
+case object
 when "C"
   print "\nRadius of circle is: "
   radius = gets.chomp.to_f
