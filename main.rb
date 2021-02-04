@@ -29,6 +29,7 @@ def output
       else
         next
       end
+      find.delete(char)
     end
   end
 
@@ -44,6 +45,7 @@ def output
       else
         next
       end
+      find.delete(char)
     end
   end
 # output specific for triangle shape
