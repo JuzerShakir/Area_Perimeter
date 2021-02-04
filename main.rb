@@ -4,11 +4,20 @@
 require 'require_all'
 require_all 'objects'
 
+def input
+  puts "\nTo find Area of a Circle Type 'A'\nType 'C' to find circumference"
+  puts "To find BOTH, Type 'AC' or 'CA':"
+  find = gets.chomp.split('').map(&:capitalize)
+  #p find
+  puts "\n"
+  return find
+end
+
 puts "Enter ONLY Initials of Calculations you want to find: "
 puts "'C' for Circle, \t 'S' for Square, \n'T' for Triangle, \t 'R' for Rectangle"
 object = gets.chomp.capitalize
 
-#p initial
+#p object
 
 case object
 when "C"
@@ -17,11 +26,7 @@ when "C"
 
   c = Circle.new(radius)
 
-  puts "\nTo find Area of a Circle Type 'A'\nType 'C' to find circumference"
-  puts "To find BOTH, Type 'AC' or 'CA':"
-  find = gets.chomp.split('').map(&:capitalize)
-  #p find
-  puts "\n"
+  input
 
   find.each do | char |
     if char == "C"
