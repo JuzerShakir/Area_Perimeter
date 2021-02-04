@@ -7,11 +7,12 @@ require_all 'objects'
 # fucntion for user input
 # asks what variables to find of that shape
 def input
-  puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE\nType 'R' to find DIAMETER\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
+  puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE\nType 'D' to find DIAMETER\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
   puts "Type more than 1 chars to find more than 1 values."
-  $find = gets.chomp.split('').map(&:upcase)
+  find = gets.chomp.split('').map(&:upcase)
   #p find
   puts "\n"
+  return find
 end
 
 # function for displaying output
@@ -23,7 +24,7 @@ def output
         puts "Circumference is: #{$o.circumference}"
       elsif char == "A"
         puts "Area is: #{$o.area}"
-      elsif char == "R"
+      elsif char == "D"
         puts "Diameter is: #{$o.diameter}"
       else
         next
@@ -32,8 +33,8 @@ def output
   end
 
 # output specific for rectangle and square shape
-  def quadrilaterals
-    $find.each do | char |
+  def quadrilaterals find
+    find.each do | char |
       if char == "A"
         puts "Area is: #{$o.area}"
       elsif char == "P"
@@ -87,8 +88,8 @@ when "S"
 
   $o = Square.new(side)
 
-  input
-  output.quadrilaterals
+  find = input
+  output.quadrilaterals(find)
 
 when "T"
   print "\nHeight of a triangle is: "
