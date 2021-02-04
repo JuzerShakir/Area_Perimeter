@@ -33,14 +33,14 @@ def output
   end
 
 # output specific for rectangle and square shape
-  def quadrilaterals s, find
+  def quadrilaterals q, find
     find.each do | char |
       if char == "A"
-        puts "Area is: #{s.area}"
+        puts "Area is: #{q.area}"
       elsif char == "P"
-        puts "Perimeter is: #{s.perimeter}"
+        puts "Perimeter is: #{q.perimeter}"
       elsif char == "D"
-        puts "Diagonal is: #{s.diagonal}"
+        puts "Diagonal is: #{q.diagonal}"
       else
         next
       end
@@ -53,7 +53,7 @@ def output
 end
 
 # we need to know which shape user is interested in
-puts "Enter ONLY Initials of Shapes you want to find: "
+puts "Enter ONLY initials of shapes you want to find: "
 puts "'C' for Circle, \t 'S' for Square, \n'T' for Triangle, \t 'R' for Rectangle"
 shape = gets.chomp.capitalize
 #p shape
