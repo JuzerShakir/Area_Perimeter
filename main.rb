@@ -5,7 +5,7 @@ require 'require_all'
 require_all 'objects'
 
 # fucntion for user input
-# asks what variables to find of that shape
+# asks what properties to find of that shape
 def input
   puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE\nType 'D' to find DIAMETER\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
   puts "Type more than 1 chars to find more than 1 values."
@@ -18,14 +18,14 @@ end
 # function for displaying output
 def output
   # output specific for circle shape
-  def circle
-    $find.each do | char |
+  def circle c, find
+    find.each do | char |
       if char == "C"
-        puts "Circumference is: #{$o.circumference}"
+        puts "Circumference is: #{c.circumference}"
       elsif char == "A"
-        puts "Area is: #{$o.area}"
+        puts "Area is: #{c.area}"
       elsif char == "D"
-        puts "Diameter is: #{$o.diameter}"
+        puts "Diameter is: #{c.diameter}"
       else
         next
       end
@@ -33,22 +33,22 @@ def output
   end
 
 # output specific for rectangle and square shape
-  def quadrilaterals find
+  def quadrilaterals s, find
     find.each do | char |
       if char == "A"
-        puts "Area is: #{$o.area}"
+        puts "Area is: #{s.area}"
       elsif char == "P"
-        puts "Perimeter is: #{$o.perimeter}"
+        puts "Perimeter is: #{s.perimeter}"
       elsif char == "D"
-        puts "Diagonal is: #{$o.diagonal}"
+        puts "Diagonal is: #{s.diagonal}"
       else
         next
       end
     end
   end
 # output specific for triangle shape
-  def triangle
-    puts "\nArea is: #{$o.area}"
+  def triangle t
+    puts "\nArea is: #{t.area}"
   end
 end
 
@@ -65,11 +65,11 @@ when "C"
   radius = gets.chomp.to_f
 
   # will call required class and give necessory info for calc
-  $o = Circle.new(radius)
-  # calls input function
-  input
+  c = Circle.new(radius)
+  # calls input function and save user input in a var
+  find = input
   # returns output
-  output.circle
+  output.circle(c, find)
 
 when "R"
   print "\nWidth of a rectangle is: "
@@ -77,19 +77,19 @@ when "R"
   print "\nHeight of a rectangle is: "
   height = gets.chomp.to_f
 
-  $o = Rectangle.new(width, height)
+  rect = Rectangle.new(width, height)
 
-  input
-  output.quadrilaterals
+  find = input
+  output.quadrilaterals(rect, find)
 
 when "S"
   print "\nSide of a square is: "
   side = gets.chomp.to_f
 
-  $o = Square.new(side)
+  sqr = Square.new(side)
 
   find = input
-  output.quadrilaterals(find)
+  output.quadrilaterals(sqr, find)
 
 when "T"
   print "\nHeight of a triangle is: "
@@ -97,8 +97,8 @@ when "T"
   print "\nWidth of a triangle is: "
   width = gets.chomp.to_f
 
-  $o = Triangle.new(height, width)
+  t = Triangle.new(height, width)
 
-  output.triangle
+  output.triangle(t)
 end
 
