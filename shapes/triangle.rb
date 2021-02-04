@@ -1,12 +1,12 @@
 include Math
 
 class Triangle
-  def initialize h, w
-    @w = w
-    @h = h
+  def initialize list
+    @w = list[0]
+    @h = list[1]
   end
 
   def area
-    area = 0.5 * @w * @h
+    (0.5 * @w * @h).round(1)
   end
 end

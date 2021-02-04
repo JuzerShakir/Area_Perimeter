@@ -1,21 +1,19 @@
 include Math
 
 class Circle
-  def initialize r
-    @r = r
+  def initialize list
+    @r = list[0]
   end
 
   def area
-    area = PI * @r ** 2
-    area.round(2)
+    (PI * @r ** 2).round(2)
   end
 
   def circumference
-    circumference = 2 * PI * @r
-    circumference.round(2)
+    (2 * PI * @r).round(2)
   end
 
   def diameter
-    diameter = 2 * @r
+    (2 * @r).round(1)
   end
 end

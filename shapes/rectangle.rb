@@ -1,9 +1,9 @@
 include Math
 
 class Rectangle
-  def initialize w, h
-    @w = w
-    @h = h
+  def initialize list
+    @w = list[0]
+    @h = list[1]
   end
 
   def area

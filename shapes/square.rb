@@ -1,16 +1,16 @@
 include Math
 
 class Square
-  def initialize s
-    @s = s
+  def initialize list
+    @s = list[0]
   end
 
   def area
-    area = @s**2
+    (@s**2).round(1)
   end
 
   def perimeter
-    perimeter = @s * 4
+    (@s * 4).round(1)
   end
 
   def diagonal
