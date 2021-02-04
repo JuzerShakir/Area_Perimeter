@@ -1,10 +1,8 @@
 # areas and perimeter for objects
 #
 
-require_relative 'square'
-require_relative 'rectangle'
-require_relative 'triangle'
-require_relative 'circle'
+require 'require_all'
+require_all 'objects'
 
 puts "Enter ONLY Initials of Calculations you want to find: "
 puts "'C' for Circle, \t 'S' for Square, \n'T' for Triangle, \t 'R' for Rectangle"
