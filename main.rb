@@ -4,13 +4,22 @@
 require 'require_all'
 require_all 'shapes'
 
+def inspect_input *args
+  args = *args
+  args.each do | ele |
+    if ele.match(/[a-z]/) then abort "Only NUMERICAL input allowed" end
+  end
+  return args.map(&:to_f)
+end
+
 # fucntion for user input
 # asks what properties to find of that shape
 def input
   puts "\nType 'A' to find AREA\nType 'C' to find CIRCUMFERENCE (ONLY FOR CIRCLE)\nType 'D' to find DIAMETER (ONLY FOR CIRCLE)\nType 'P' to find PERIMETER\nType 'D' to find DIAGONAL."
   puts "Type more than 1 chars to find more than 1 values."
-  find = gets.chomp.split('').map(&:upcase)
-  #p find
+  find = gets.chomp.split('').map(&:capitalize)
+# this will delete all duplicate elements
+  find.uniq!
   puts "\n"
   return find
 end
@@ -29,7 +38,6 @@ def output
       else
         next
       end
-      find.delete(char)
     end
   end
 
@@ -45,7 +53,6 @@ def output
       else
         next
       end
-      find.delete(char)
     end
   end
 # output specific for triangle shape
@@ -64,10 +71,10 @@ shape = gets.chomp.capitalize
 case shape
 when "C"
   print "\nRadius of circle is: "
-  radius = gets.chomp.to_f
+  radius = gets.chomp
 
   # will call required class and give necessory info for calc
-  c = Circle.new(radius)
+  c = Circle.new(inspect_input(radius))
   # calls input function and save user input in a var
   find = input
   # returns output
@@ -75,31 +82,31 @@ when "C"
 
 when "R"
   print "\nWidth of a rectangle is: "
-  width = gets.chomp.to_f
+  width = gets.chomp
   print "\nHeight of a rectangle is: "
-  height = gets.chomp.to_f
+  height = gets.chomp
 
-  rect = Rectangle.new(width, height)
+  rect = Rectangle.new(inspect_input(width, height))
 
   find = input
   output.quadrilaterals(rect, find)
 
 when "S"
   print "\nSide of a square is: "
-  side = gets.chomp.to_f
+  side = gets.chomp
 
-  sqr = Square.new(side)
+  sqr = Square.new(inspect_input(side))
 
   find = input
   output.quadrilaterals(sqr, find)
 
 when "T"
   print "\nHeight of a triangle is: "
-  height = gets.chomp.to_f
+  width = gets.chomp
   print "\nWidth of a triangle is: "
-  width = gets.chomp.to_f
+  height = gets.chomp
 
-  t = Triangle.new(height, width)
+  t = Triangle.new(inspect_input(height, width))
 
   output.triangle(t)
 end
