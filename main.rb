@@ -79,16 +79,14 @@ when "C"
 
   # will call required class and give necessory info for calc
   c = Circle.new(inspect_input(radius))
-  # calls input function and save user input in a var
+  # calls input function and save user input in a var in a form of float
   find = input
   # returns output
   output.circle(c, find)
 
 when "R"
-  print "\nWidth of a rectangle is: "
-  width = gets.chomp
-  print "\nHeight of a rectangle is: "
-  height = gets.chomp
+  print "\nWidth and Height of a rectangle is x,y: "
+  width, height = gets.chomp.split(',')
 
   rect = Rectangle.new(inspect_input(width, height))
 
@@ -105,10 +103,8 @@ when "S"
   output.quadrilaterals(sqr, find)
 
 when "T"
-  print "\nHeight of a triangle is: "
-  width = gets.chomp
-  print "\nWidth of a triangle is: "
-  height = gets.chomp
+  print "\nWidth and Height of a triangle is x,y: "
+  width, height = gets.chomp.split(',')
 
   t = Triangle.new(inspect_input(height, width))
 
