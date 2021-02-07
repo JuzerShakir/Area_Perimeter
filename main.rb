@@ -113,5 +113,8 @@ when "T"
   t = Triangle.new(inspect_input(height, width))
 
   output.triangle(t)
+
+else
+  abort "Enter valid initials!"
 end
 
