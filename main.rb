@@ -1,4 +1,6 @@
-# areas and perimeter for objects
+###### Build on 02 Feb 2021
+###### Ruby version ruby 2.7.2p137 or ruby 3.0.0p0 (2020-12-25 revision 95aff21468)
+###### areas and perimeter of shapes
 #
 # makes available all required shapes for calculation
 require 'require_all'
